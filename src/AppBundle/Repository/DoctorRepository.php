@@ -2,15 +2,14 @@
 
 namespace AppBundle\Repository;
 
-use Doctrine\ORM\EntityRepository;
 use AppBundle\Entity\Hospital;
 
-class HospitalRepository extends EntityRepository implements RepositoryInterface {
+class DoctorRepository implements RepositoryInterface {
 
     /** @return Hospital */
     public function selectById($id) {
         $em = $this->getEntityManager();
-        $repository = $em->getRepository('AppBundle:Hospital');
+        $repository = $em->getRepository('AppBundle:Doctor');
         return $repository->findOneById($id);
     }
 

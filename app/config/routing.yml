@@ -1,3 +1,17 @@
 app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
+    pattern:  /
+    defaults: { _controller: AppBundle:HospitalPatients:index }
+    requirements:
+        _method:  GET      
+        
+savepatient:
+    path:     /patient/save
+    defaults: { _controller: AppBundle:HospitalPatients:savePatient }
+    requirements:
+        _method:  POST   
+        
+getdoctorpatients:
+    path:     /doctor/{doctorId}/patients
+    defaults: { _controller: AppBundle:HospitalPatients:getDoctorPatients }
+    requirements:
+        _method:  GET       
